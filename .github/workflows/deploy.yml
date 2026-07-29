@@ -58,9 +58,7 @@ jobs:
             docker pull \
             ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
 
-            docker stop flask-app || true
-
-            docker rm flask-app || true
+           docker rm -f flask-app || true
 
             docker run -d \
               --name flask-app \
